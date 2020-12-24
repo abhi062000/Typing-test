@@ -1,0 +1,98 @@
+/* body element */
+body {
+  background: url("https://images.pexels.com/photos/2680270/pexels-photo-2680270.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  font-family: "Dosis", sans-serif;
+  padding: 5px;
+}
+
+.row {
+  margin: 10px;
+}
+.meas_container {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.value {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.change {
+  height: 10px;
+  margin: 5px;
+  padding: 2px;
+}
+#content {
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 140px;
+  font-size: 1.9rem;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 5px;
+}
+#input {
+  width: 100%;
+  font-size: 1.8rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px;
+  color: #e8f1f5;
+  font-weight: 400;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  word-spacing: 5px;
+  letter-spacing: 2px;
+}
+#input:focus {
+  outline: none;
+  border: 3px solid #005691;
+}
+.keyboard {
+  background: url("https://colemak.com/wiki/images/6/6c/Colemak2.png") no-repeat
+    center center;
+  background-size: contain;
+  min-height: 150px;
+  max-height: 250px;
+  margin: 10px 0px;
+}
+.btn-primary {
+  background-color: rgb(0, 86, 145);
+  color: #fff;
+  cursor: pointer;
+}
+
+.scoredown {
+  background-color: rgb(243, 75, 75);
+  padding: 5px;
+  border-radius: 5px;
+}
+.scoreup {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #4aee09;
+  color: #000;
+}
+
+.modal {
+  color: #000;
+  font-weight: 600;
+}
+
+.modal_content {
+  font-size: 1.2rem;
+}
+
+.activeWord {
+  background-color: rgba(74, 238, 9, 0.3);
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.correctCharacter {
+  color: #05436d;
+}
+.wrongCharacter {
+  color: rgb(196, 9, 9);
+}

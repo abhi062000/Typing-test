@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+      crossorigin="anonymous"
+    />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styling.css" />
+
+    <!-- jspdf for creating pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="text-center">
+        <header>
+          <h1>Typing Test</h1>
+        </header>
+        <div class="row">
+          <div class="col-3">
+            <div class="meas_container">
+              <div class="typing-icon">
+                <img
+                  src="Images/speed.png"
+                  alt="Speed"
+                  width="50"
+                  height="50"
+                />
+              </div>
+              <div class="value" id="wpm">0</div>
+              <div class="title"><span>WPM</span></div>
+            </div>
+            <div class="change">
+              <span id="wpm_change"></span>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="meas_container">
+              <div class="typing-icon">
+                <img
+                  src="Images/character.png"
+                  alt="Character"
+                  width="50"
+                  height="50"
+                />
+              </div>
+              <div class="value" id="cpm">0</div>
+              <div class="title"><span>CPM</span></div>
+            </div>
+            <div class="change">
+              <span id="cpm_change"></span>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="meas_container">
+              <div class="typing-icon">
+                <img
+                  src="Images/accuracy.png"
+                  alt="Accuracy"
+                  width="50"
+                  height="50"
+                />
+              </div>
+              <div class="value" id="accuracy">0 %</div>
+              <div class="title"><span>Accuracy</span></div>
+            </div>
+            <div class="change">
+              <span id="accuracy_change"></span>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="meas_container">
+              <div class="typing-icon">
+                <img
+                  src="Images/time.png"
+                  alt="Time Left"
+                  width="50"
+                  height="50"
+                />
+              </div>
+              <div class="value" id="time_left"></div>
+              <div class="title"><span>Time Left</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- test words -->
+        <div id="content" class="text-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+          aliquam laudantium, quod perspiciatis, sunt nihil tempore deserunt
+          porro beatae placeat deleniti voluptate adipisci praesentium dicta rem
+          asperiores sapiente odit, blanditiis obcaecati facilis. Voluptatem
+          adipisci cum totam esse quos inventore nam numquam, eos dolore,
+          delectus pariatur animi necessitatibus explicabo ut possimus! Lorem
+          ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis et
+          quis dolore delectus earum! Rem sunt distinctio rerum ad quibusdam
+          blanditiis, maxime est ullam possimus omnis quae ab dolor doloribus id
+          fugit nisi harum, quasi consectetur itaque animi tempora minima
+          ducimus, dicta molestiae. Eos enim atque iusto, veritatis error cum,
+          optio natus aliquam corporis numquam deleniti quis eligendi ipsum.
+        </div>
+        <!-- text input -->
+        <div>
+          <input
+            type="text"
+            id="input"
+            placeholder="Type here"
+            class="text-center"
+          />
+        </div>
+        <!-- keyboard -->
+        <div class="keyboard"></div>
+        <!-- restart button -->
+        <div class="restart">
+          <button class="btn btn-primary btn-md" onclick="location.reload()">
+            Restart
+          </button>
+        </div>
+        <!-- modal -->
+        <div class="modal" tabindex="-1" role="dialog" id="my_modal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">You Finished your Test</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form class="form-group">
+                  <input
+                    id="name_field"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your Name"
+                  />
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="download">
+                  Download your Certificate
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+      integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript" src="dataModule.js"></script>
+    <script type="text/javascript" src="UIModule.js"></script>
+    <script type="text/javascript" src="certificateModule.js"></script>
+    <script type="text/javascript" src="wordsModule.js"></script>
+    <script type="text/javascript" src="eventsModule.js"></script>
+    <script type="text/javascript" src="code.js"></script>
+  </body>
+</html>
